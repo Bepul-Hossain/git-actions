@@ -22,4 +22,4 @@ jobs:
         needs: setup-nginx
         steps: 
             - name: Setup deploy
-              run: sudo apt updated
+              run: sudo apt update

@@ -17,4 +17,9 @@ jobs:
 
             - name: Chekcout the repo
               uses: actions/checkout@v4
-              
+    deploy:
+        runs-on: self-hosted
+        needs: setup-nginx
+        steps: 
+            - name: Setup deploy
+              run: sudo apt updated

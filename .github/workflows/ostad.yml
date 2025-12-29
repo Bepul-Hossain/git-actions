@@ -16,3 +16,7 @@ jobs:
               uses: actions/checkout@v2
             - name: Read the txt file
               run: cat test.txt
+            - name: Executable the shell script
+              run: chmod +x ostad.sh
+            - name: Execute the bash file
+              run: ./ostad.sh

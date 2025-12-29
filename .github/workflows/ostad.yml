@@ -9,14 +9,8 @@ on:
             - main
 
 jobs: 
-    read_the_file:
-        runs-on: ubuntu-latest
+    setup-nginx:
+        runs-on: self-hosted
         steps: 
-            - name: Get clone
-              uses: actions/checkout@v2
-            - name: Read the txt file
-              run: cat test.txt
-            - name: Executable the shell script
-              run: chmod +x ostad.sh
-            - name: Execute the bash file
-              run: ./ostad.sh
+            - name: Install The nginx
+              run: sudo apt install nginx -y

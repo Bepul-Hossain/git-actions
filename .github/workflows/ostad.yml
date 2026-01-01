@@ -51,14 +51,14 @@ jobs:
           pm2 save
 
       - run: sleep 10
-      
+
       - name: Pm2 Status check
         run: pm2 status
         
       - name: Check Server
         run: curl http://localhost:80
 
-# name: CI CD pipeline => Ostad 
+# name: CI CD pipeline => Ostad  
 
 # on:
 #   push:

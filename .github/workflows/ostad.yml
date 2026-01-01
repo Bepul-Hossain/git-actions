@@ -16,6 +16,8 @@ jobs:
       - name: Update system
         run: sudo apt update -y
 
+        #Note: sudo apt install -y libatomic1
+        
       - name: Install nginx
         run: sudo apt install nginx -y
 

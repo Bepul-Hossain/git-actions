@@ -7,8 +7,11 @@ on:
 
 jobs: 
     setup-nginx:
-        runs-on: self-hosted
+        runs-on: ostad-runner
         steps: 
+            - name: Print Hello
+              run: echo "Hello Ostad"
+              
             - name: Install The nginx
               run: sudo apt install nginx -y
 

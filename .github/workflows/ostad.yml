@@ -44,7 +44,7 @@ jobs:
               run: |
                 pm2 delete 'Server' || true
                 pm2 start "npm run dev" --name="Server"
-                
+            
 #   setup:
 #     runs-on: ostad-label
 

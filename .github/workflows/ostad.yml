@@ -55,7 +55,7 @@ jobs:
       - name: Check Server
         run: curl http://localhost:80
 
-# name: CI CD pipeline => Ostad
+# name: CI CD pipeline => Ostad 
 
 # on:
 #   push:

@@ -7,7 +7,7 @@ on:
 
 jobs: 
     setup-nginx:
-        runs-on: self-hosted
+        runs-on: ostad-label
         steps: 
             - name: Print Hello
               run: echo "Hello Ostad"

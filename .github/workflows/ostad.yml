@@ -6,39 +6,56 @@ on:
       - main
 
 jobs:
-  setup:
-    runs-on: ostad-label
+    Test:
+        runs-on: ubuntu-latest
+        steps: 
+            - name: Checkout_code
+              uses: actions/checkout@v4
+            
+            - name: Set up Node.js
+              uses: actions/setup-node@v2
+              with: 
+                node-version: '22'
+            
+            - name: Install dependencies
+              run: npm install
+            
+            - name: Run tests
+              run: npm run check
 
-    steps:
-      - name: Checkout the repo
-        uses: actions/checkout@v4
+#   setup:
+#     runs-on: ostad-label
 
-      - name: Update system
-        run: sudo apt update -y
+#     steps:
+#       - name: Checkout the repo
+#         uses: actions/checkout@v4
 
-        #Note: sudo apt install -y libatomic1
-        
-      - name: Install nginx
-        run: sudo apt install nginx -y
+#       - name: Update system
+#         run: sudo apt update -y
 
-      - name: Install NVM
-        run: |
-          export NVM_DIR="$HOME/.nvm"
-          if [ ! -d "$NVM_DIR" ]; then
-            curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-          fi
+#         #Note: sudo apt install -y libatomic1
 
-      - name: Install latest Node.js & npm using NVM
-        run: |
-          export NVM_DIR="$HOME/.nvm"
-          . "$NVM_DIR/nvm.sh"
+#       - name: Install nginx
+#         run: sudo apt install nginx -y
 
-          nvm install node
-          nvm use node
-          nvm alias default node
+#       - name: Install NVM
+#         run: |
+#           export NVM_DIR="$HOME/.nvm"
+#           if [ ! -d "$NVM_DIR" ]; then
+#             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+#           fi
 
-          node -e "console.log('Running Node.js ' + process.version)"
-          npm -v
+#       - name: Install latest Node.js & npm using NVM
+#         run: |
+#           export NVM_DIR="$HOME/.nvm"
+#           . "$NVM_DIR/nvm.sh"
 
-      - name: Copy test.txt file
-        run: cat test.txt
+#           nvm install node
+#           nvm use node
+#           nvm alias default node
+
+#           node -e "console.log('Running Node.js ' + process.version)"
+#           npm -v
+
+#       - name: Copy test.txt file
+#         run: cat test.txt

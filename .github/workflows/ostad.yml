@@ -26,7 +26,6 @@ jobs:
 
   
 
-
   Deploy:
     runs-on: ostad-label
     needs: Testing

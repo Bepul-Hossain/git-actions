@@ -17,6 +17,9 @@ jobs:
 
             - name: Chekcout the repo
               uses: actions/checkout@v4
+            
+            - name: copy test.txt file
+              run: cat test.txt
     # deploy:
     #     runs-on: self-hosted
     #     needs: setup-nginx

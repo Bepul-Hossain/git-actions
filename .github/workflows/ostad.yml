@@ -22,7 +22,28 @@ jobs:
             
             - name: Run tests
               run: npm run check
+    Deploy:
+        runs-on: ostad-label
+        needs: Test
+        steps:
+            - name: Checkout_code
+              uses: actions/checkout@v2
+            
+            - name: Set up Node.js
+              uses: actions/setup-node@v6
+              with: 
+                node-version: 'latest'
+            
+            - name: Install dependencies
+              run: npm install
+            
+            - name: install pm2
+              run: npm install pm2 -g
 
+            - name: Deploy to Ostad server
+              run: |
+                pm2 delete 'Server' || true
+                pm2 start "npm run dev" --name="Server"
 #   setup:
 #     runs-on: ostad-label
 

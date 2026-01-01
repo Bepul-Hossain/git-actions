@@ -49,6 +49,12 @@ jobs:
           pm2 delete "Server" || true
           pm2 start "npm run dev" --name="Server"
 
+      - name: Pm2 Status check
+        run: pm2 status
+        
+      - name: Check Server
+        run: curl http://127.0.0.1:5000
+
 # name: CI CD pipeline => Ostad
 
 # on:

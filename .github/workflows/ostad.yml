@@ -6,17 +6,21 @@ on:
             - main
 
 jobs: 
-    setup-nginx:
+    setup:
         runs-on: ostad-label
         steps: 
-            - name: Print Hello
-              run: echo "Hello Ostad"
+            - name: Chekcout the repo
+              uses: actions/checkout@v4
 
             - name: Install The nginx
               run: sudo apt install nginx -y
-
-            - name: Chekcout the repo
-              uses: actions/checkout@v4
+            
+            - name: Install NVM
+              run: |
+                export NVM_DIR="$HOME/.nvm"
+                if [ ! -d "$NVM_DIR" ]; then
+                    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
+                fi             
             
             - name: copy test.txt file
               run: cat test.txt

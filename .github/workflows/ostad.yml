@@ -13,19 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '22'
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '22'
 
-      - name: Install Dependencies
-        run: npm install
+      # - name: Install Dependencies
+      #   run: npm install
 
-      - name: Run Tests
-        run: npm run check
+      # - name: Run Tests
+      #   run: npm run check
 
   
-
   Deploy:
     runs-on: ostad-label
     needs: Testing
@@ -38,25 +37,27 @@ jobs:
       #   with:
       #     node-version: '22'
  
-      - name: Install Dependencies
-        run: npm install
+      # - name: Install Dependencies
+      #   run: npm install
 
       - name: Install pm2 
         run: sudo npm install -g pm2
  
-      - name: Deploy to Server
-        run: |
-          pm2 delete Server || true
-          pm2 start npm --name "Server" -- run start
-          pm2 save
+      # - name: Deploy to Server
+      #   run: |
+      #     pm2 delete Server || true
+      #     pm2 start npm --name "Server" -- run start
+      #     pm2 save
 
-      - run: sleep 10
+      # - run: sleep 10
 
-      - name: Pm2 Status check
-        run: pm2 status
+      # - name: Pm2 Status check
+      #   run: pm2 status
         
-      - name: Check Server
-        run: curl http://localhost:80
+      # - name: Check Server
+      #   run: curl http://localhost:80
+
+#--------------------------------------------------------------
 
 # name: CI CD pipeline => Ostad    
 

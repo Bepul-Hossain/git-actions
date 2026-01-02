@@ -1,15 +1,15 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
-const app = require('../src/server.js'); 
+const app = require('../src/server.js');
 chai.use(chaiHttp);
 const expect = chai.expect;
 let server;
 
-before(function(done) {
+before(function (done) {
   server = app.listen(3001, done);
 });
 
-after(function(done) {
+after(function (done) {
   if (server && server.listening) {
     server.close(done);
   } else {
@@ -37,7 +37,7 @@ describe('Server Tests', () => {
         .end((err, res) => {
           expect(res).to.have.status(200);
           expect(res.body).to.be.an('object');
-          expect(res.body.message).to.equal('Hello World change');
+          expect(res.body.message).to.equal('Hello World changes');
           done();
         });
     });

@@ -37,25 +37,25 @@ jobs:
           curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
           sudo apt-get install -y nodejs
  
-      # - name: Install Dependencies
-      #   run: npm install
+      - name: Install Dependencies
+        run: npm install
 
       - name: Install PM2 globally
         run: sudo npm install -g pm2
  
-      # - name: Deploy to Server
-      #   run: |
-      #     pm2 delete Server || true
-      #     pm2 start npm --name "Server" -- run start
-      #     pm2 save
+      - name: Deploy to Server
+        run: |
+          pm2 delete Server || true
+          pm2 start npm --name "Server" -- run start
+          pm2 save
 
-      # - run: sleep 10
+      - run: sleep 10
 
-      # - name: Pm2 Status check
-      #   run: pm2 status
+      - name: Pm2 Status check
+        run: pm2 status
         
-      # - name: Check Server
-      #   run: curl http://localhost:80
+      - name: Check Server
+        run: curl http://localhost:80
 
 #--------------------------------------------------------------
 

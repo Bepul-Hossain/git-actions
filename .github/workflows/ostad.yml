@@ -45,8 +45,9 @@ jobs:
  
       - name: Deploy to Server
         run: |
-          pm2 delete node-express-app || true
-          pm2 start src/server.js --name node-express-app
+          pm2 delete Server || true
+          pm2 start npm --name "Server" -- run start
+          pm2 save
       - run: sleep 10
 
       - name: Pm2 Status check
